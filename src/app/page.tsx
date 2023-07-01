@@ -1,11 +1,14 @@
+"use client"
+
 import Image from "next/image"
 import styles from "./page.module.css"
+import { Button, Input } from "@chakra-ui/react"
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        <p>My Name is Dimas Roger</p>
+        <p>My Name is Dimasss</p>
         <div>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"

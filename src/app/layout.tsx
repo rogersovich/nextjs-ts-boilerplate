@@ -1,4 +1,3 @@
-import "./globals.css"
 import { Inter } from "next/font/google"
 import ReactQueryProviders from "@/utils/react-query/query-providers"
 import { Providers as ChakraProviders } from "@/theme/theme_providers"

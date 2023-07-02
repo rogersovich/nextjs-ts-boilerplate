@@ -11,9 +11,10 @@ import { Link } from "@chakra-ui/next-js"
 
 const RickAndMortyPage = () => {
   const queryClient = getQueryClient()
-  queryClient.prefetchQuery(["hydrate-fetch-character", { page: "1" }], () =>
+  const page = "1"
+  queryClient.prefetchQuery(["hydrate-fetch-character", { page }], () =>
     fetchCharacters({
-      page: "1",
+      page: page,
     })
   )
   const dehydratedState = dehydrate(queryClient)
@@ -22,7 +23,11 @@ const RickAndMortyPage = () => {
       <Box>
         <Flex flex={2} alignItems={"center"} py={4}>
           <Link href={"/"}>
-            <IconButton aria-label="" variant={"ghost"} color={"gray.800"}>
+            <IconButton
+              aria-label="hellow"
+              variant={"ghost"}
+              color={"gray.800"}
+            >
               <TbArrowLeft size={30} />
             </IconButton>
           </Link>

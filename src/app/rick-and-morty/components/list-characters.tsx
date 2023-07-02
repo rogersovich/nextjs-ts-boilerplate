@@ -9,14 +9,15 @@ import getColorStatus from "../utils/get-color-status"
 import getIconGender from "../utils/get-icon-gender"
 
 const ListCharacters = () => {
-  const { data: characters } = useQuery({
-    queryKey: ["hydrate-fetch-character"],
+  const { data: characters, isLoading } = useQuery({
+    queryKey: ["fetch-character"],
     queryFn: () => fetchCharacters(),
   })
 
   return (
     <>
       <Box color={"red.500"}>
+        {isLoading && <Box>SHeila loading</Box>}
         <Grid templateColumns="repeat(6, 1fr)" gap={4}>
           {characters?.results.map((ch, key) => (
             <GridItem colSpan={2} key={key}>

@@ -10,8 +10,12 @@ export const fetchCharacters = async ({
   gender,
 }: TFilterCharacters = {}): Promise<BaseResponseCharacters> => {
   const params: TFilterCharacters = {}
+  if (!!page) params.page = page
   if (!!name) params.name = name
   if (!!status) params.status = status
+  if (!!species) params.species = species
+  if (!!type) params.type = type
+  if (!!gender) params.gender = gender
   const response = await axiosClient.get("/character", {
     params: params,
   })

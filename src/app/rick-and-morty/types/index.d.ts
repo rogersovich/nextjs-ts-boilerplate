@@ -1,6 +1,6 @@
 export interface BaseResponseCharacters {
   info: Info
-  results: Result[]
+  results: ResultBase[]
 }
 
 export interface Info {
@@ -12,7 +12,7 @@ export interface Info {
 
 export type enumStatus = "Alive" | "Dead" | "unknown"
 export type enumGender = "Female" | "Male" | "Genderless" | "unknown"
-export interface Result {
+export interface ResultBase {
   id: number
   name: string
   status: enumStatus

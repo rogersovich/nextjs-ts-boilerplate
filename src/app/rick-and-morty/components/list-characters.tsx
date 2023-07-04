@@ -1,18 +1,25 @@
-"use client"
+"use client";
 
-import { Box, Grid, GridItem, Text, Flex, HStack } from "@chakra-ui/react"
-import { fetchCharacters } from "../api/characters"
-import { useQuery } from "@tanstack/react-query"
-import Image from "next/image"
+import { Box, Grid, GridItem, Text, Flex, HStack } from "@chakra-ui/react";
+import { fetchCharacters } from "../api/characters";
+import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 
-import getColorStatus from "../utils/get-color-status"
-import getIconGender from "../utils/get-icon-gender"
+import getColorStatus from "../utils/get-color-status";
+import getIconGender from "../utils/get-icon-gender";
+import { BaseResponseCharacters, ResultBase } from "../types";
 
-const ListCharacters = () => {
+const ListCharacters = ({
+  initCharacters,
+}: {
+  initCharacters: BaseResponseCharacters;
+}) => {
+
   const { data: characters, isLoading } = useQuery({
     queryKey: ["fetch-character"],
     queryFn: () => fetchCharacters(),
-  })
+    initialData: initCharacters
+  });
 
   return (
     <>
@@ -61,7 +68,7 @@ const ListCharacters = () => {
         </Grid>
       </Box>
     </>
-  )
-}
+  );
+};
 
-export default ListCharacters
+export default ListCharacters;
